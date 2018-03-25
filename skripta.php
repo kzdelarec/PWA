@@ -1,39 +1,37 @@
 <?php
   $naslovClanka = $_POST['naslov'];
-  $tekstClanka = $_POST["tekst"];
+  $tekstClanka = $_POST['tekst'];
+  $autorClanka = $_POST['autor'];
 ?>
-  <!DOCTYPE html>
-  <html lang="hr">
-    <head>
-      <link type="text/css" rel="stylesheet" href="http://localhost/style.css" />
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  		<meta name="description" content="Vijesti TVZ-a">
-  		<meta name="keywords" content="vijesti, TVZ">
-  		<meta name="author" content="Kristijan Zdelarec">
-  		<meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>TVZ News</title>
-    </head>
-    <body >
-      <header class="logo">
-        <a href="index.html">
-          <img src="images/logo.png" alt="logo">
-        </a>
-      </header>
-      <nav class="floatLeft">
-        <ul>
-          <li><a class="navLink" href="http://localhost/index.html">Naslovna</a></li>
-          <li><a class="navLink" href="http://localhost/onama.html">O nama</a></li>
-          <li><a class="navLink" target="_blank" href="https://www.tvz.hr/">Stranica TVZ-a</a></li>
-          <li><a class="navLink" href="http://localhost/unos.html">Unos</a></li>
-        </ul>
-      </nav>
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <meta charset="utf-8">
+    <title>TVZ News</title>
+  </head>
+  <body >
+    <header class="logo">
+      <a href="index.html">
+        <img src="images/logo.png" alt="logo">
+      </a>
+    </header>
+    <nav class="floatLeft">
+      <ul>
+      <li><a class="navLink" href="index.html">Naslovna</a></li>
+      <li><a class="navLink" href="onama.html">O nama</a></li>
+      <li><a class="navLink" target="_blank" href="https://www.tvz.hr/">Stranica TVZ-a</a></li>
+      <li><a class="navLink" href="unos.html">Unos</a></li>
+      </ul>
+    </nav>
 
     <section class="wrapper">
       <section class="content">
       <article>
         <?php
-          echo '<h1>'.$naslovClanka.'</h1>';
-          echo '<p>'.$tekstClanka.'</p>';
+        echo '<h1>'.$naslovClanka.'</h1>';
+        echo '<p>'.$tekstClanka.'</p>';
+        echo '<p class="autor">Autor: '.$autorClanka.'</p>';
         ?>
       </article>
       </section>
