@@ -1,2 +1,2 @@
 # PWA
-Programiranje web aplikacija
+Web portal projekt za kolegij programiranje web aplikacija
