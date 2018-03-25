@@ -144,3 +144,8 @@ form{
   width:90%;
   margin: 0, auto;
 }
+.autor{
+  padding: 5px;
+  font-weight: bold;
+  font-size: 12px;
+}
