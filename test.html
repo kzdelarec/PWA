@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vijesti</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body class="wrapper">
+		<header>
+			<h1>Vijesti.tvz</h1>
+			<img src="logo.jpg"/>
+			<div class="clear"></div>
+			<nav>
+				<ul>
+					<li class="zaobljeno1"><a href="index.php">Početna</a></li>
+					<li><a href="onama.html">O nama</a></li>
+					<li><a href="https://moj.tvz.hr/" target="_blank">Moj TVZ</a></li>
+					<li class="zaobljeno2"><a href="#">UNOS</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main class="wrapper">
+        <form action="http://localhost/skripta.php" method="post">
+  			<p>
+  			<label for="naslovVijesti" name="naslovVijesti">Naslov vijesti:</label>
+  			<input type="text" id="naslovVijesti" name="naslovVijesti"/></br></br>
+  			<textarea name="sazetakVijesti" id="sazetakVijesti" rows="10" cols="40">Kratki sadržaj vijesti.</textarea></br>
+  			<textarea name="tekstVijesti" id="tekstVijesti" rows="10" cols="40">Tekst nove vijesti.</textarea></br>
+  			<select name="kategorija" id="kategorija">
+  				<option value="Vijesti">Vijesti</option>
+  				<option value="Sport">Sport</option>
+  				<option value="Biznis">Biznis</option>
+  				<option value="Life">Life</option>
+  				<option value="Kultura">Kultura</option>
+  				<option value="Crna kronika">Crna kronika</option>
+  			</select>
+  			<label><input type="checkbox" id="sakrijVijesti" name="sakrijVijesti">Sakrij vijest</label>
+  			<input type="submit" id="posalji" value="Pošalji">
+  			</p>
+
+  			</form>
+        <script type="text/javascript">
+              document.getElementById("posalji").onclick=function(e){
+
+                  var slanje=true;
+
+                  var naslov=document.getElementById("naslovVijesti").value;
+                  var tekst=document.getElementById("tekstVijesti").value;
+                  var sazetak=document.getElementById("sazetakVijesti").value;
+                  var kategorija=document.getElementById("kategorija").value;
+                  var arh=document.getElementById("sakrijVijesti").checked;
+
+                  if (naslov.length<5 || naslov.length>30){
+                      slanje=false;
+                      document.getElementById("naslovVijesti").style.border="2px solid red";
+
+                  }
+                  if (tekst.length<10 || tekst.length>1000){
+                      slanje=false;
+                      document.getElementById("tekstVijesti").style.border="2px solid red";
+
+                  }
+
+                  if (sazetak.length<10 || sazetak.length>100){
+                      slanje=false;
+                      document.getElementById("sazetakVijesti").style.border="2px solid red";
+
+                  }
+
+                  if(kategorija==""){
+                    slanje=false;
+                    document.getElementById("kategorija").style.border="2px solid red";
+                  }
+
+                  if (!slanje){
+                     e.preventDefault();
+                  } else if (arh){
+                      var a=confirm("Jeste li sigurni da zelite arhivirati vijest?");
+                      if (!a) e.preventDefault();
+                  }
+              }
+          </script>
+		</main>
+		<footer class="wrapper">
+		<p>Autor: Patricija Kuže</p>
+		<p>E-MAIL: pkuze@tvz.hr</p>
+		<p>Godina: 2018.</p>
+		</footer>
+	</body>
+
+</html>

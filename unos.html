@@ -11,38 +11,109 @@
   </head>
   <body >
     <header class="logo">
-      <a href="index.html">
+      <a href="index.php">
         <img src="images/logo.png" alt="logo">
       </a>
     </header>
     <nav class="floatLeft">
       <ul>
-        <li><a class="navLink" href="index.html">Naslovna</a></li>
+        <li><a class="navLink" href="index.php">Naslovna</a></li>
         <li><a class="navLink" href="onama.html">O nama</a></li>
         <li><a class="navLink" target="_blank" href="https://www.tvz.hr/">Stranica TVZ-a</a></li>
         <li><a class="navLink" href="unos.html">Unos</a></li>
+        <li><a class="navLink" href="login.html">Administracija</a></li>
+        <li><a class="navLink" href="login.html">Prijavi se</a></li>
+        <li><a class="navLink" href="registracija.html">Registriraj se</a></li>
       </ul>
     </nav>
 
     <section class="wrapper">
-      <section class="content">
-        <form name="formaZaUnos" action="http://localhost/skripta.php" method="POST">
+      <section id="content" class="content">
+        <form name="formaZaUnos" enctype="multipart/form-data" action="http://localhost/skripta.php" method="post">
           <label for="naslov">Naslov: </label>
           <br>
           <input id="naslov" type="text" name="naslov" style="width: 100%; padding-top: 5px; padding-bottom: 5px;" />
           <br>
+          <label id="naslovPoruka"></label>
+          <br>
+          Kratki sadržaj:
+          <br>
+          <textarea id="sazetak" name="sazetak" rows="10" style="width: 100%;"></textarea>
+          <br>
+          <label id="sadrzajPoruka"></label>
+          <br>
           Tekst:
           <br>
-          <textarea name="tekst" rows="20" style="width: 100%;"></textarea>
+          <textarea id="tekst" name="tekst" rows="20" style="width: 100%;"></textarea>
+          <br>
+          <label id="tekstPoruka"></label>
           <br>
           <label for="autor">Autor: </label>
           <br>
           <input id="autor" type="text" name="autor" style="width: 100%; padding-top: 5px; padding-bottom: 5px;" />
           <br>
-          <input type="submit" value="Objavi">
+          <select id="kategorija" name="kategorije" style="padding-top: 5px; padding-bottom: 5px;">
+            <option value="Računarstvo">Računarstvo</option>
+            <option value="Gadgeti">Gadgeti</option>
+            <option value="Trendovi">Trendovi</option>
+          </select>
+          <label id="kategorijaPoruka"> test</label>
+          <br>
+          <label><input id="sakrij" type="checkbox" name="isVisible">Sakrij vijest</label>
+          <br>
+          <input type="file" id="slikaUpload" name="slikaUpload" />
+          <label id="slikaPoruka"></label>
+          <br>
+          <input type="submit" id="posaljiGumb" name="objavi" value="Objavi"/>
         </form>
+        <script type="text/javascript">
+              document.getElementById("posaljiGumb").onclick=function(e){
+
+                  var slanje=true;
+
+                  var naslov=document.getElementById("naslov").value;
+                  var tekst=document.getElementById("tekst").value;
+                  var sazetak=document.getElementById("sazetak").value;
+                  var kategorija=document.getElementById("kategorija").value;
+                  var arh=document.getElementById("sakrij").checked;
+                  var img = document.getElementById("slikaUpload").value;
+
+                  if (naslov.length<5 || naslov.length>30){
+                      slanje=false;
+                      document.getElementById("naslov").style.border="2px solid red";
+                      document.getElementById("naslovPoruka").innerHTML="Naslov mora imati 5 do 30 znakova!";
+                      document.getElementById("naslovPoruka").style.color="red";
+                  }
+                  if (tekst.length<10 || tekst.length>1000){
+                      slanje=false;
+                      document.getElementById("tekst").style.border="2px solid red";
+                      document.getElementById("tekstPoruka").innerHTML="Tekst mora imati 10 do 1000 znakova!";
+                      document.getElementById("tekstPoruka").style.color="red";
+                  }
+
+                  if (sazetak.length<10 || sazetak.length>100){
+                      slanje=false;
+                      document.getElementById("sazetak").style.border="2px solid red";
+                      document.getElementById("sadrzajPoruka").innerHTML="Kratki sadržaj mora imati 10 do 100 znakova!";
+                      document.getElementById("sadrzajPoruka").style.color="red";
+                  }
+                  if(img==""){
+                    document.getElementById("slikaUpload").style.border="2px solid red";
+                    slanje=false;
+                    document.getElementById("slikaPoruka").innerHTML="Članak mora imati naslovnu sliku!";
+                    document.getElementById("slikaPoruka").style.color="red";
+                  }
+                  if (!slanje){
+                     e.preventDefault();
+                  } else if (arh){
+                      var a=confirm("Jeste li sigurni da zelite arhivirati vijest?");
+                      if (!a) e.preventDefault();
+                  }
+              }
+          </script>
+
       </section>
-      <aside class="aside">
+      <aside id="aside" class="aside">
         <a target="_blank" href="https://en.wikipedia.org/wiki/Advertising"><img src="images/ad.png" alt="img"/></a>
         <iframe   width="300" height="200"  src="https://www.youtube.com/embed/y6120QOlsfU" allowfullscreen></iframe>
         <h4 class="asideTitle">Lorem Ipsum</h4>
@@ -50,18 +121,27 @@
         </p>
         <h3 class="asideTitle">Best Of Memes</h3>
         <div>
-          <img class="floatLeft" src="images/img1.jpg" alt="img"/>
-          <img class="floatLeft" src="images/img2.jpg" alt="img"/>
-          <img class="floatLeft" src="images/img3.jpg" alt="img"/>
-          <img class="floatLeft" src="images/img4.jpg" alt="img"/>
-          <img class="floatLeft" src="images/img5.jpg" alt="img"/>
-          <img class="floatLeft" src="images/img6.jpg" alt="img"/>
+          <a href="images/img1.jpg"><img class="floatLeft" src="images/img1.jpg" alt="img"/></a>
+          <a href="images/img2.jpg"><img class="floatLeft" src="images/img2.jpg" alt="img"/></a>
+          <a href="images/img3.jpg"><img class="floatLeft" src="images/img3.jpg" alt="img"/></a>
+          <a href="images/img4.jpg"><img class="floatLeft" src="images/img4.jpg" alt="img"/></a>
+          <a href="images/img5.jpg"><img class="floatLeft" src="images/img5.jpg" alt="img"/></a>
+          <a href="images/img6.jpg"><img class="floatLeft" src="images/img6.jpg" alt="img"/></a>
         </div>
       </aside>
+      <script type="text/javascript">
+        var contentHeight = document.getElementById('content').clientHeight;
+        var asideHeight = document.getElementById('aside').clientHeight;
+        if(contentHeight<asideHeight){
+          document.getElementById("content").style.borderRight="0px";
+          document.getElementById("aside").style.borderLeft="3px outset gray";
+        }
+      </script>
     </section>
 
     <footer>
       <p>Copyright © 2018 - Kristijan Zdelarec, kzdelarec@tvz.hr</p>
     </footer>
   </body>
+
 </html>

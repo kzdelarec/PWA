@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="hr">
   <head>
-    <link type="text/css" rel="stylesheet" href="http://localhost/style.css" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
 		<meta name="description" content="Vijesti TVZ-a">
 		<meta name="keywords" content="vijesti, TVZ">
 		<meta name="author" content="Kristijan Zdelarec">
@@ -29,31 +30,33 @@
 
     <section class="wrapper">
       <section id="content" class="content">
-        <article id="oNamaId">
-          <iframe class="floatLeft" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2781.789074153953!2d15.96675881524894!3d45.79545327910628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765d68b5d094979%3A0xda8bfa8459b67560!2sUl.+Vrbik+VIII%2C+10000%2C+Zagreb!5e0!3m2!1shr!2shr!4v1521020132015" width="300" height="300" allowfullscreen></iframe>
-          <div class="informacije">
-            <p>Autor: Kristijan Zdelarec</p>
-            <p>Nam arcu felis, feugiat sed purus vel, faucibus facilisis lacus.</p>
-            <div>
-              <p>Radno vrijeme:</p>
-              <ul>
-                <li>Pon - Pet: 8:00 - 20:00</li>
-                <li>Sub, Ned: 9:00 - 13:00</li>
-              </ul>
-            </div>
-            <div>
-              <p>Kontakt:</p>
-              <ul>
-                <li>E-mail: redakcija@tvz.hr</li>
-                <li>Tel: 01/1111-111</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+        <?php
+          $dbc = mysqli_connect('localhost', 'root', '9zwrGst6', 'vijesti') or die('Error connecting to MySQL server.');
+          $query = "SELECT * FROM clanci";
+          $result = mysqli_query($dbc, $query);
+          if(mysqli_num_rows ($result) > 0)
+          {
+            while($row = mysqli_fetch_array($result)) {
+              if($row['isVisible']==1){
+                echo '<article>';
+                echo'<h1>'.$row['naslov'].'</h1>';
+                echo'<img class="floatLeft" src="images/'.$row['slika'].'" alt="img"/>';
+                echo'<p class="sazetak">'.$row['sazetak'].'</p>';
+                echo'<p>'.$row['vijest'].'</p>';
+                echo'<p class="autor">Autor: '.$row['autor'].'<br>Kategorija: '.$row['kategorija'].'</p>';
+                echo '</article>';
+              }
+            }
+          }
+          else{
+            echo '0 results';
+          }
+          mysqli_close($dbc);
+        ?>
       </section>
       <aside id="aside" class="aside">
-        <a target="_blank" href="https://en.wikipedia.org/wiki/Advertising"><img src="images/ad.png" alt="img"/></a>
-        <iframe   width="300" height="200"  src="https://www.youtube.com/embed/y6120QOlsfU" allowfullscreen></iframe>
+        <a target="_blank" href="https://en.wi kipedia.org/wiki/Advertising"><img src="images/ad.png" alt="img"/></a>
+        <iframe   class="yt"  src="https://www.youtube.com/embed/y6120QOlsfU" allowfullscreen></iframe>
         <h4 class="asideTitle">Lorem Ipsum</h4>
         <p>Nam arcu felis, feugiat sed purus vel, faucibus facilisis lacus. Vestibulum sagittis, magna sit amet ullamcorper posuere, nisi odio volutpat mauris, semper dictum turpis turpis eu augue. Mauris convallis id ex eu varius. Nulla bibendum fermentum turpis vel elementum. Morbi bibendum erat a risus rutrum congue. Praesent ante purus, bibendum sit amet ex vitae, tristique scelerisque dui. Quisque congue lacus augue, non bibendum purus vulputate ac. Quisque ornare nunc ac quam blandit, vitae lacinia augue sollicitudin.
         </p>

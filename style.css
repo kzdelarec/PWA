@@ -1,151 +1,342 @@
-*{
-  margin:0;
-  padding:0;
+@media (min-width:800px){
+  *{
+    margin:0;
+    padding:0;
+  }
+
+.loginForm{
+  width:200px;
+  margin: 0 auto;
 }
 
-body{
-  background-image: url("images/bodyPattern.png");
-  width:1100px;
-  //width: 100%;
-  margin:0 auto;
-}
+  body{
+    background-image: url("images/bodyPattern.png");
+    width: 1100px;
+    margin:0 auto;
+  }
 
 
-ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.navLink{
-  display: block;
-  width: 100%;
-  padding: 20px 0 20px 10px;
-  margin-right: 10px;
-  text-decoration: none;
-  color:#FF7F50;
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .navLink{
+    display: block;
+    width: 100%;
+    padding: 20px 0 20px 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    color:#FF7F50;
+  }
+
+  nav ul li{
+    float:left;
+  }
+
+  nav{
+    width:100%;
+    background-image: url("images/navigacijaPattern.png");
+    border-bottom: 1px solid black;
+  }
+
+  a:link {color:#FF7F50;}
+  a:visited {color:#FF7F50;}
+  li a:hover {
+    color:white;
+    background-color: #FF7F50;
+  }
+  a:active {color:#FF7F50;}
+
+  .logo{
+    height: 135px;
+    width: 100%;
+    background-image: url("images/navigacijaPattern.png");
+  }
+
+  header img{
+    width: 10%;
+    margin-left: 20px;
+    float:left;
+  }
+
+  .floatLeft{
+    float:left;
+  }
+  .floatRight{
+    float:right;
+  }
+
+  footer{
+    clear:both;
+    background-color: #2F4F4F;
+  }
+
+  footer p{
+    color:white;
+    padding:10px;
+  }
+
+  .content{
+    clear: both;
+    float:left;
+    width:70%;
+    border-right: 3px inset gray;
+  }
+  article{
+    float: left;
+    width:40%;
+    padding: 20px 30px 20px 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 5px;
+  }
+
+  article p{
+    text-align: justify;
+  }
+
+  article h3{
+    padding:10px;
+  }
+
+  article img {
+      width: 100%;
+      padding: 10px 0;
+  }
+
+  #oNamaId{
+    width:100%;
+  }
+
+  .informacije{
+    float: left;
+    width: 40%;
+    padding: 20px;
+  }
+  .informacije ul{
+    padding-top: 10px;
+  }
+
+  .informacije div{
+    padding-top: 10px;
+  }
+
+  .informacije li{
+    padding-left: 10px;
+  }
+  aside{
+    width:29%;
+    float: left;
+  }
+
+  aside img{
+    width:100%;
+  }
+  aside div img{
+    width:30%;
+    padding: 5px;
+  }
+
+  .asideTitle{
+    padding: 10px;
+  }
+  aside p{
+    padding:0 10px;
+  }
+
+  .clear{
+    clear: both;
+  }
+
+  form{
+    width:90%;
+    margin: 0, auto;
+  }
+  .autor{
+    padding: 5px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .sazetak{
+    font-size:12px;
+    padding:5px 0;
+    font-style: italic;
+  }
+  th{
+    text-align: left;
+  }
+  h1{
+    font-size: 24px;
+  }
+  tr{
+    border-bottom: 1px solid black;
+  }
+
+  .yt{
+    width: 100%;
+  }
+
 }
 
-nav ul li{
-  float:left;
-}
+@media (max-width: 799px) {
 
-nav{
-  width:100%;
-  background-image: url("images/navigacijaPattern.png");
-  border-bottom: 1px solid black;
-}
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .navLink{
+    display: block;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    text-decoration: none;
+    color:#FF7F50;
+  }
 
-a:link {color:#FF7F50;}
-a:visited {color:#FF7F50;}
-li a:hover {
-  color:white;
-  background-color: #FF7F50;
-}
-a:active {color:#FF7F50;}
+  nav ul li{
+    float:left;
+    width: 100%;
+  }
 
-.logo{
-  height: 135px;
-  width: 100%;
-  background-image: url("images/navigacijaPattern.png");
-}
+  nav{
+    width:100%;
+    background-image: url("images/navigacijaPattern.png");
+    border-bottom: 1px solid black;
+  }
 
-header img{
-  width: 10%;
-  margin-left: 20px;
-  float:left;
-}
+  a:link {color:#FF7F50;}
+  a:visited {color:#FF7F50;}
+  li a:hover {
+    color:white;
+    background-color: #FF7F50;
+  }
+  a:active {color:#FF7F50;}
 
-.floatLeft{
-  float:left;
-}
-.floatRight{
-  float:right;
-}
+  .logo{
+    width: 100%;
+    background-image: url("images/navigacijaPattern.png");
+  }
 
-footer{
-  clear:both;
-  background-color: #2F4F4F;
-}
+  header img{
+    width: 50%;
+    margin-left: 20px;
+    float:left;
+  }
 
-footer p{
-  color:white;
-  padding:10px;
-}
+  .floatLeft{
+    float:left;
+  }
+  .floatRight{
+    float:right;
+  }
 
-.content{
-  clear: both;
-  float:left;
-  width:70%;
-  border-right: 3px inset gray;
-}
-article{
-  float: left;
-  width:40%;
-  padding: 20px 30px 20px 30px;
-}
+  footer{
+    clear:both;
+    background-color: #2F4F4F;
+  }
 
-article p{
-  text-align: justify;
-}
+  footer p{
+    color:white;
+    padding:10px;
+  }
 
-article h3{
-  padding:10px;
-}
+  .content{
+    clear: both;
+    float:left;
+    width:70%;
+  }
+  article{
+    float: left;
+    width:100%;
+    padding: 20px 30px 20px 30px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 5px;
+  }
 
-article img{
-  height:20%;
-}
+  article p{
+    text-align: justify;
+  }
 
-#oNamaId{
-  width:100%;
-}
+  article h3{
+    padding:10px;
+  }
 
-.informacije{
-  float: left;
-  width: 40%;
-  padding: 20px;
-}
-.informacije ul{
-  padding-top: 10px;
-}
+  article img {
+      width: 100%;
+      padding: 10px 0;
+  }
 
-.informacije div{
-  padding-top: 10px;
-}
+  #oNamaId{
+    width:100%;
+  }
 
-.informacije li{
-  padding-left: 10px;
-}
-aside{
-  width:29%;
-  float: left;
-}
+  .informacije{
+    float: left;
+    width: 100%;
+    padding: 20px;
+  }
+  .informacije ul{
+    padding-top: 10px;
+  }
 
-aside img{
-  width:100%;
-}
-aside div img{
-  width:30%;
-  padding: 5px;
-}
+  .informacije div{
+    padding-top: 10px;
+  }
 
-.asideTitle{
-  padding: 10px;
-}
-aside p{
-  padding:0 10px;
-}
+  .informacije li{
+    padding-left: 10px;
+  }
+  aside{
+    width:100%;
+    float: left;
+  }
 
-.clear{
-  clear: both;
-}
+  aside img{
+    width:100%;
+  }
+  aside div img{
+    width:45%;
+    padding: 5px;
+  }
 
-form{
-  width:90%;
-  margin: 0, auto;
-}
-.autor{
-  padding: 5px;
-  font-weight: bold;
-  font-size: 12px;
+  .asideTitle{
+    padding: 10px;
+  }
+  aside p{
+    padding:0 10px;
+  }
+
+  .clear{
+    clear: both;
+  }
+
+  form{
+    width:90%;
+    margin: 0, auto;
+  }
+  .autor{
+    padding: 5px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .sazetak{
+    font-size:12px;
+    padding:5px 0;
+    font-style: italic;
+  }
+  th{
+    text-align: left;
+  }
+  h1{
+    font-size: 24px;
+  }
+  tr{
+    border-bottom: 1px solid black;
+  }
+
+  .yt{
+    width: 100%;
+  }
+
 }
